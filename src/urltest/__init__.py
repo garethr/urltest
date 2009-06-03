@@ -20,6 +20,7 @@ if __name__ == "__main__":
 """
 
 # standard library
+import sys
 import unittest
 
 # external module
@@ -148,4 +149,4 @@ def verify_urls(data, application):
     # once all the test methods have been added we can get the full suite
     suite = unittest.TestLoader().loadTestsFromTestCase(TestSuite)
     # and then run the tests via the default TestRunner
-    unittest.TextTestRunner().run(suite)
+    unittest.TextTestRunner(sys.stdout).run(suite)
