@@ -4,7 +4,7 @@ from setuptools import setup, find_packages
 
 setup(
     name = "urltest",
-    version = "0.1",
+    version = "0.2.3",
     author = "Gareth Rushgrove",
     author_email = "gareth@morethanseven.net",    
     url = "http://github.com/garethr/urltest",
@@ -14,18 +14,10 @@ setup(
     install_requires = [
         "WebTest>=1.2",
     ],
+    licence = "MIT License",
+    keywords = "wsgi testing urls",
     description = "A wrapper around WebTest which provides a nice domain specific language for testing URLs in WSGI applications",
-    long_description = """
-+++++++
-UrlTest
-+++++++
-
-A wrapper around WebTest which provides a nice domain specific language for
-testing URLs in WSGI applications. The following example demonstrates usage:
-
-Example
-=======
-
+    long_description = '''\
     #!/usr/bin/env python
 
     from example_app import application
@@ -39,14 +31,13 @@ Example
             {'url':"/jim", 'method': "POST", 'code':405},
             )    
         verify_urls(urls, application)
-
-Files
-=====
-
-""",
+''',
     classifiers = [
         "Intended Audience :: Developers",
         "License :: OSI Approved :: MIT License",
         "Topic :: Internet :: WWW/HTTP :: WSGI",
+        'Operating System :: OS Independent',
+        'Programming Language :: Python',
+        'Topic :: Software Development :: Testing',
     ]
 )
