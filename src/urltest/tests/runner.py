@@ -54,13 +54,16 @@ class RunnerTests(CommonTest):
         self.assert_contains("Ran 0 tests in 0.000s", output[0])
 
     def test_verify_urls_with_a_single_test(self):
-        output = self.capture_verify_urls(({'url':"/", 'code':200},), demo_app)
+        output = self.capture_verify_urls(({'url':"/", 'code':200},), demo_app)        
         self.assert_contains("Ran 1 test in", output[0])
+
+    def test_verify_urls_with_multiple_tests(self):
+        output = self.capture_verify_urls(({'url':"/", 'code':200},{'url':"/foo", 'code':200}), demo_app)
+        self.assert_contains("Ran 2 tests in", output[0])
 
     def test_a_failing_test(self):
         output = self.capture_verify_urls(({'url':"/", 'code':404},), demo_app)
         self.assert_contains("FAILED", output[0])
-        
 
 if __name__ == "__main__":
     unittest.main()

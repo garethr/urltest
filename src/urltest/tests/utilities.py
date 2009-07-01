@@ -50,5 +50,10 @@ class NameTests(unittest.TestCase):
         test_name = _get_test_name(item)
         self.assertEqual(test_name, "test_delete_request_of_/foo/bar_returns_405")
 
+    def test_method_in_caps_is_lowercased(self):
+        item = {'url':"/", 'code':200, 'method': "POST"}
+        test_name = _get_test_name(item)
+        self.assertEqual(test_name, "test_post_request_of_/_returns_200")
+
 if __name__ == "__main__":
     unittest.main()
